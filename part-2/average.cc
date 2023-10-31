@@ -26,8 +26,13 @@ int main(int argc, char* argv[]) {
   // Each argument is a std::string. You will need to convert each string into
   // a number with the std::stod or std::stof function.
   double total = 0.0;
-  for (int i = 1; i < arguments.size(); i++) {
-    total += std::stod(arguments[i]);
+  bool first = true;
+  for (const std::string& argument : arguments) {
+    if (first) {
+      first = false;
+    } else {
+      total += std::stod(argument);
+    }
   }
 
   // todo: After the loop has finished summing the arguments, calculate the
